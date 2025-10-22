@@ -364,19 +364,19 @@ footer {
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
 }
 
-/* Tüm sayfanın üstünde, layout'u BOZMAYAN sabit katman */
+
 #flowers-container{
   position: fixed;
-  inset: 0;              /* top:0; right:0; bottom:0; left:0 */
-  pointer-events: none;  /* tıklamayı engellemez */
+  inset: 0;             
+  pointer-events: none;  
   overflow: hidden;
-  z-index: 9999;         /* header'ın da üstünde */
+  z-index: 9999;         
 }
 
-/* Tek tek çiçekler */
+
 .flower{
   position: absolute;
-  top: -10vh;            /* ekranın biraz üstünden başlasın */
+  top: -10vh;            
   will-change: transform, opacity;
   animation:
     fall var(--dur, 6s) linear forwards,
@@ -384,13 +384,12 @@ footer {
   opacity: .95;
 }
 
-/* Düşme */
 @keyframes fall{
   from { transform: translateY(0); opacity: 1; }
   to   { transform: translateY(110vh); opacity: 0; }
 }
 
-/* Sağa-sola hafif salınım (rüzgâr etkisi) */
+
 @keyframes sway{
   from { transform: translateX(calc(var(--sx, 20px) * -1)); }
   to   { transform: translateX(var(--sx, 20px)); }
