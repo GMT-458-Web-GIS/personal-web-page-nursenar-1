@@ -27,7 +27,7 @@ It was created to introduce myself, showcase my projects and interests, and demo
 | **about.html** | About Me — photos, favorite movies, series, books, and bands with a gallery layout 📷 |
 | **cv.html** | Resume — education, experiences, skills, and a downloadable PDF version 📄 |
 | **map.html** | Interactive map (OpenLayers) showing 10 cities I’ve visited with pins and photos 🗺️ |
-| **hobbies.html** *(optional)* | Hobbies and personal interests displayed as image cards 🧶 |
+| **hobbies.html**  | Hobbies and personal interests displayed as image cards 🧶 |
 | **contact.html** | Contact page with clickable icons for mail, Instagram, LinkedIn, and GitHub 💌 |
 
 ---
@@ -77,8 +77,6 @@ Each pin displays city photos in a gallery below the map when clicked.
 ### 💌 Contact Page
 ![Contact Page](contactme.png)
 
-> Place your screenshots in the `images/` folder with these names:  
-> `index-preview.png`, `about-preview.png`, `cv-preview.png`, `map-preview.png`, `contact-preview.png`
 
 ---
 
