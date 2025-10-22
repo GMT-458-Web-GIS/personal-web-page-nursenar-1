@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Where is the Nurs? | Hatice Nursena Resüloğlu</title>
+
+  <link rel="stylesheet" href="style.css" />
+
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/ol@v7.4.0/ol.css" />
+
+  <style>
+
+    #map {
+      width: 100%;
+      height: 500px;
+      border-radius: 15px;
+      overflow: hidden;
+    }
+
+    .gallery {
+      margin-top: 20px;
+      text-align: center;
+    }
+
+    .gallery img {
+      width: 200px;
+      height: 150px;
+      object-fit: cover;
+      border-radius: 12px;
+      border: 3px solid #1abc9c;
+      margin: 5px;
+      transition: transform 0.2s;
+    }
+
+    .gallery img:hover {
+      transform: scale(1.05);
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <h1>Hatice Nursena Resüloğlu</h1>
+    <p>Geomatics Engineering student at Hacettepe University</p>
+    <nav>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="cv.html">CV</a></li>
+        <li><a href="hobbies.html">Hobbies</a></li>
+        <li><a class="active" href="map.html">Where is the Nurs?</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main class="card">
+    <h2 style="text-align:center; color:#1abc9c;">🗺️ Cities I've Visited</h2>
+    <div id="map"></div>
+
+    <div class="gallery" id="photo-gallery">
+      <p>Click on a city and see images 🌸</p>
+    </div>
+  </main>
+
+  <footer>
+    <p>© 2025 Hatice Nursena Resüloğlu | All rights reserved.</p>
+  </footer>
+
+  <!-- OpenLayers JS -->
+  <script src="https://cdn.jsdelivr.net/npm/ol@v7.4.0/dist/ol.js"></script>
+
+  <script>
+
+    const cities = [
+      {
+        name: "Kastamonu",
+        coord: [33.7753, 41.3887],
+        photos: ["kastamonu.jpeg","kastamonu3.jpeg","kastamonu4.jpeg" ]
+      },
+      {
+        name: "Ankara",
+        coord: [32.8597, 39.9334],
+      },
+      {
+        name: "İstanbul",
+        coord: [28.9784, 41.0082],
+        photos: ["istanbul.jpeg", "istanbul2.jpeg","istanbul3.jpeg"]
+      },
+      {
+        name: "Eskişehir",
+        coord: [30.5234, 39.7767],
+        photos: ["eskişehir.jpeg","eskişehir2.jpeg"]
+      },
+      {
+        name: "Gaziantep",
+        coord: [37.3781, 37.0662],
+      },
+      {
+        name: "Sinop",
+        coord: [35.1570, 42.0268],
+        photos: ["sinop.jpeg","sinop1.jpeg"]
+      },
+      {
+        name: "Bursa",
+        coord: [29.0610, 40.1885],
+      },
+      {
+        name: "İzmir",
+        coord: [27.1384, 38.4237],
+        photos: ["izmir.jpeg","izmir2.jpeg"]
+      },
+      {
+        name: "Balıkesir",
+        coord: [27.8861, 39.6484],
+      },
+      {
+        name: "Samsun",
+        coord: [36.3360, 41.2867],
+      }
+    ];
+
+    const map = new ol.Map({
+      target: "map",
+      layers: [
+        new ol.layer.Tile({
+          source: new ol.source.OSM()
+        })
+      ],
+      view: new ol.View({
+        center: ol.proj.fromLonLat([34.5, 39.0]),
+        zoom: 6
+      })
+    });
+
+    const features = cities.map(city => {
+      const feature = new ol.Feature({
+        geometry: new ol.geom.Point(ol.proj.fromLonLat(city.coord)),
+        name: city.name,
+        photos: city.photos
+      });
+
+      feature.setStyle(
+        new ol.style.Style({
+          image: new ol.style.Icon({
+            src: "https://cdn-icons-png.flaticon.com/512/2776/2776067.png",
+            scale: 0.05,
+            anchor: [0.5, 1]
+          })
+        })
+      );
+      return feature;
+    });
+
+    const vectorLayer = new ol.layer.Vector({
+      source: new ol.source.Vector({
+        features: features
+      })
+    });
+
+    map.addLayer(vectorLayer);
+
+    const gallery = document.getElementById("photo-gallery");
+
+    map.on("singleclick", function (evt) {
+      const feature = map.forEachFeatureAtPixel(evt.pixel, f => f);
+      if (feature) {
+        const cityName = feature.get("name");
+        const photos = feature.get("photos");
+
+    
+        gallery.innerHTML = `<h3 style="color:#1abc9c">${cityName}</h3>`;
+        photos.forEach(src => {
+          const img = document.createElement("img");
+          img.src = src;
+          img.alt = cityName;
+          gallery.appendChild(img);
+        });
+
+        map.getView().animate({
+          center: feature.getGeometry().getCoordinates(),
+          zoom: 10,
+          duration: 600
+        });
+      }
+    });
+  </script>
+</body>
+</html>
+
