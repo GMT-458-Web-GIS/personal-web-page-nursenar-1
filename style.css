@@ -407,4 +407,32 @@ footer {
   from { rotate: 0deg; }
   to   { rotate: 360deg; }
 }
+/* === DARK MODE OVERRIDES === */
+body.dark { background:#181818; color:#e8e8e8; }
+
+
+.dark header { background:#6f56a5; color:#fff; }
+.dark header h1, .dark header p { color:#fff; }
+.dark nav a { color:#e8e8e8; }
+.dark nav a.active, .dark nav a:hover { color:#1abc9c; }
+
+
+.dark .card { background:#222; color:#e8e8e8; box-shadow:0 8px 20px rgba(0,0,0,.45); }
+.dark .card h2, .dark .card h3, .dark .card h4 { color:#ffffff; }
+
+
+.dark .highlights { background:#1e1e1e; }
+.dark .highlights h2 { color:#1abc9c; }
+.dark .tags li { background:#2b3a36; color:#9ee6cf; }
+
+
+.dark .gallery .hint { color:#bdbdbd; }
+.dark .gallery-grid img { border-color:#8bd9c6; }
+
+.dark .contact-card { background:#1f1f1f; }
+.dark .contact-card span { color:#e8e8e8; }
+
+.dark footer { background:#2b2b2b; color:#e8e8e8; }
+
+.dark .ol-popup { background:#2a2a2a; color:#e8e8e8; border-color:#3a3a3a; }
     
