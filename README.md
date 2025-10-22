@@ -99,7 +99,7 @@ Each pin displays city photos in a gallery below the map when clicked.
 
 ## 📬 Contact
 - **Email:** hnresl07@gmail.com  
-- **Instagram:** [instagram.com/n.nursena.a] (https://www.instagram.com/n.nursena.a/  )
+- **Instagram:** (https://www.instagram.com/n.nursena.a/  ) (https://www.instagram.com/nursenart/  )
 - **LinkedIn:** [linkedin.com/in/hatice-nursena-res%C3%BClo%C4%9Flu-286602245/](https://www.linkedin.com/in/hatice-nursena-res%C3%BClo%C4%9Flu-286602245/)  
 - **GitHub:** [github.com/nursenar](https://github.com/nursenar)
 
