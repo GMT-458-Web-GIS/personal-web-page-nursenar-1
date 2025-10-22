@@ -1,4 +1,5 @@
 # 🌸 Hatice Nursena Resüloğlu – Personal Website
+🔗 [ https://gmt-458-web-gis.github.io/personal-web-page-nursenar-1/]( https://gmt-458-web-gis.github.io/personal-web-page-nursenar-1/)
 
 This project is a **personal portfolio website** built using **HTML, CSS, and JavaScript**.  
 It was created to introduce myself, showcase my projects and interests, and demonstrate my web development skills.
@@ -64,19 +65,17 @@ Each pin displays city photos in a gallery below the map when clicked.
 ## 🎨 Screenshots
 
 ### 🏠 Home Page
-![Home Page](images/index-preview.png)
+![Home Page](home.png)
 
 ### 👩‍💼 About Me Page
-![About Page](images/about-preview.png)
 
 ### 📄 CV / Resume Page
-![CV Page](images/cv-preview.png)
 
 ### 🗺️ Map Page
-![Map Page](images/map-preview.png)
+![Map Page](maps.png)
 
 ### 💌 Contact Page
-![Contact Page](images/contact-preview.png)
+![Contact Page](contactme.png)
 
 > Place your screenshots in the `images/` folder with these names:  
 > `index-preview.png`, `about-preview.png`, `cv-preview.png`, `map-preview.png`, `contact-preview.png`
@@ -94,10 +93,9 @@ Each pin displays city photos in a gallery below the map when clicked.
 ---
 
 ## 🚀 Live Demo
-If deployed via GitHub Pages, the live site can be viewed here:  
-🔗 [https://username.github.io/portfolio-website](https://username.github.io/portfolio-website)
 
-*(Replace `username` with your GitHub username.)*
+🔗 [ https://gmt-458-web-gis.github.io/personal-web-page-nursenar-1/]( https://gmt-458-web-gis.github.io/personal-web-page-nursenar-1/)
+
 
 ---
 
