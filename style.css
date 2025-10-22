@@ -364,34 +364,35 @@ footer {
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
 }
 
-/* === FLOWER FALL EFFECT === */
-#flowers-container {
+/* Tüm sayfanın üstünde, layout'u BOZMAYAN sabit katman */
+#flowers-container{
   position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  pointer-events: none;   
+  inset: 0;              /* top:0; right:0; bottom:0; left:0 */
+  pointer-events: none;  /* tıklamayı engellemez */
   overflow: hidden;
-  z-index: 9999;         
+  z-index: 9999;         /* header'ın da üstünde */
 }
 
-.flower {
+/* Tek tek çiçekler */
+.flower{
   position: absolute;
-  top: -50px;
-  font-size: 1.5rem;
-  opacity: 0.9;
-  animation: fall linear forwards;
+  top: -10vh;            /* ekranın biraz üstünden başlasın */
+  will-change: transform, opacity;
+  animation:
+    fall var(--dur, 6s) linear forwards,
+    sway calc(var(--dur, 6s) * 0.9) ease-in-out infinite alternate;
+  opacity: .95;
 }
 
-
-@keyframes fall {
-  0% {
-    transform: translateY(0) rotate(0deg);
-    opacity: 1;
-  }
-  100% {
-    transform: translateY(100vh) rotate(720deg);
-    opacity: 0;
-  }
+/* Düşme */
+@keyframes fall{
+  from { transform: translateY(0); opacity: 1; }
+  to   { transform: translateY(110vh); opacity: 0; }
 }
+
+/* Sağa-sola hafif salınım (rüzgâr etkisi) */
+@keyframes sway{
+  from { transform: translateX(calc(var(--sx, 20px) * -1)); }
+  to   { transform: translateX(var(--sx, 20px)); }
+}
+
