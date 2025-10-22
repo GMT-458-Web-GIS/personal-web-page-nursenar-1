@@ -227,7 +227,7 @@ footer {
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
 }
 
-/* Mobil görünüm */
+
 @media (max-width: 400px) {
   .about-content {
     flex-direction: column;
@@ -266,6 +266,52 @@ footer {
   width: 200px;
   border-radius: 12px;
   animation: spinGif 8s linear infinite;
+}
+
+.cv-actions{
+  display:flex; gap:10px; justify-content:flex-end; align-items:center;
+}
+
+.cv-page{ padding:24px; }
+.cv-header-row{
+  display:flex; justify-content:space-between; gap:24px; flex-wrap:wrap;
+  border-bottom:1px solid #e8edf2; padding-bottom:12px; margin-bottom:16px;
+}
+.cv-name{ margin:0; color:#2c3e50; }
+.cv-tag{ margin:4px 0 0; color:#6b7b8c; font-weight:600; }
+
+.cv-contact{ list-style:none; padding:0; margin:0; min-width:260px; }
+.cv-contact li{ margin:2px 0; }
+
+.cv-section{ margin:18px 0; }
+.cv-section h3{
+  margin:0 0 8px; color:#2c3e50;
+  border-left:6px solid #72146f; padding-left:10px; font-size:1.15rem;
+}
+
+.cv-item{ margin:10px 0 14px; }
+.cv-item-head{ display:flex; flex-direction:column; gap:4px; }
+.cv-item-head h4{ margin:0; font-size:1.05rem; }
+.cv-meta{ color:#6b7b8c; font-size:.95rem; }
+
+.cv-bullets{ padding-left:18px; margin:6px 0; }
+
+/* 2 sütunlu bloklar */
+.cv-two{ display:grid; grid-template-columns:1fr 1fr; gap:18px; }
+@media (max-width: 720px){
+  .cv-two{ grid-template-columns:1fr; }
+}
+
+@media print{
+  @page{ size:A4; margin:14mm; }
+  body{ background:#fff; }
+  header, nav, footer{ display:none !important; }  /* site header/footer yazdırma dışı */
+  .card{ box-shadow:none; border-radius:0; }
+  .cv-actions{ display:none !important; }
+  main{ margin:0; padding:0; }
+  .cv-page{ padding:0; }
+  .cv-section{ break-inside: avoid; }
+  .cv-two{ grid-template-columns:1fr 1fr; column-gap:18px; }
 }
 
 
