@@ -99,9 +99,9 @@ Each pin displays city photos in a gallery below the map when clicked.
 
 ## 📬 Contact
 - **Email:** hnresl07@gmail.com  
-- **Instagram:** [instagram.com/hatice.nursena](https://www.instagram.com/hatice.nursena/)  
-- **LinkedIn:** [linkedin.com/in/haticenursenaresuloglu](https://www.linkedin.com/in/haticenursenaresuloglu/)  
-- **GitHub:** [github.com/haticenursena](https://github.com/haticenursena)
+- **Instagram:** [instagram.com/n.nursena.a] (https://www.instagram.com/n.nursena.a/  )
+- **LinkedIn:** [linkedin.com/in/hatice-nursena-res%C3%BClo%C4%9Flu-286602245/](https://www.linkedin.com/in/hatice-nursena-res%C3%BClo%C4%9Flu-286602245/)  
+- **GitHub:** [github.com/nursenar](https://github.com/nursenar)
 
 ---
 
