@@ -1,4 +1,4 @@
-// === Scroll to Top Button with Sparkle Effect ===
+// === 1️⃣ Scroll to Top Button with Sparkle Effect ===
 
 // butonu oluştur
 const topBtn = document.createElement("button");
@@ -7,7 +7,7 @@ topBtn.title = "Go to top";
 topBtn.innerHTML = "⬆️";
 document.body.appendChild(topBtn);
 
-// butonun temel stili
+// temel stil
 Object.assign(topBtn.style, {
   position: "fixed",
   bottom: "20px",
@@ -27,7 +27,7 @@ Object.assign(topBtn.style, {
   overflow: "hidden"
 });
 
-// hover (parıltı) efekti
+// hover parıltısı
 topBtn.addEventListener("mouseenter", () => {
   topBtn.style.background = "#9e5ad4";
   topBtn.style.transform = "scale(1.15)";
@@ -38,18 +38,18 @@ topBtn.addEventListener("mouseleave", () => {
   topBtn.style.transform = "scale(1)";
 });
 
-// kaydırma durumuna göre görünürlük
+// scroll izleme
 window.addEventListener("scroll", () => {
   topBtn.style.display = window.scrollY > 200 ? "block" : "none";
 });
 
-// tıklanınca yukarı kaydır + yıldız efekti
+// tıklama: yukarı kaydır + yıldız efekti
 topBtn.addEventListener("click", () => {
   window.scrollTo({ top: 0, behavior: "smooth" });
   createSparkles();
 });
 
-// === PARILTI (hover glow) ===
+// parıltı (hover)
 function createGlow() {
   const glow = document.createElement("div");
   Object.assign(glow.style, {
@@ -68,7 +68,7 @@ function createGlow() {
   setTimeout(() => glow.remove(), 600);
 }
 
-// === TIKLAMA PARILTISI (sparkles) ===
+// yıldız efekti (tıklama)
 function createSparkles() {
   for (let i = 0; i < 8; i++) {
     const sparkle = document.createElement("span");
@@ -87,7 +87,54 @@ function createSparkles() {
   }
 }
 
-// === Animasyonlar için CSS (JS ile ekleniyor) ===
+// === 2️⃣ Tema (Dark / Light Mode) ===
+const themeBtn = document.createElement("button");
+themeBtn.id = "theme-toggle";
+document.body.appendChild(themeBtn);
+
+Object.assign(themeBtn.style, {
+  position: "fixed",
+  top: "15px",
+  right: "20px",
+  background: "#1abc9c",
+  color: "white",
+  border: "none",
+  borderRadius: "20px",
+  padding: "8px 14px",
+  cursor: "pointer",
+  fontWeight: "600",
+  zIndex: "9999",
+  boxShadow: "0 4px 10px rgba(0,0,0,0.2)",
+  transition: "all .3s"
+});
+
+// tema yükleme (kayıtlıysa)
+if (localStorage.getItem("theme") === "dark") enableDarkMode();
+else disableDarkMode();
+
+// buton davranışı
+themeBtn.addEventListener("click", () => {
+  if (document.body.classList.contains("dark")) disableDarkMode();
+  else enableDarkMode();
+});
+
+function enableDarkMode() {
+  document.body.classList.add("dark");
+  themeBtn.textContent = "☀️ Light Mode";
+  localStorage.setItem("theme", "dark");
+  document.body.style.background = "#181818";
+  document.body.style.color = "#f1f1f1";
+}
+
+function disableDarkMode() {
+  document.body.classList.remove("dark");
+  themeBtn.textContent = "🌙 Dark Mode";
+  localStorage.setItem("theme", "light");
+  document.body.style.background = "";
+  document.body.style.color = "";
+}
+
+// === Animasyonlar (JS ile ekliyoruz) ===
 const style = document.createElement("style");
 style.innerHTML = `
 @keyframes glowPulse {
