@@ -43,33 +43,39 @@
         <p>© 2025 Hatice Nursena Resüloğlu | All rights reserved.</p>
     </footer>
 
-    
-     <script>
-    // Basit “falling flowers” üreticisi
+
+   <script>
     const container = document.getElementById('flowers-container');
     const emojis = ['🌸','🌼','🌺','🌷','🌻','💮'];
 
     function spawnFlower() {
-      const f = document.createElement('span');
-      f.className = 'flower';
-      f.textContent = emojis[Math.floor(Math.random() * emojis.length)];
+      // dış: düşüş
+      const wrapper = document.createElement('span');
+      wrapper.className = 'flower';
 
-      // rastgele başlangıç konumu/özellik
-      f.style.left = Math.random() * 100 + 'vw';
-      f.style.fontSize = (16 + Math.random() * 28) + 'px';
-      f.style.setProperty('--dur', (3 + Math.random() * 5) + 's');     // düşme süresi
-      f.style.setProperty('--sx', (Math.random() * 2 - 1) * 30 + 'px'); // sağa-sola salınım
+      // iç: salınım/dönüş
+      const inner = document.createElement('span');
+      inner.className = 'petal';
+      inner.textContent = emojis[Math.floor(Math.random() * emojis.length)];
 
-      container.appendChild(f);
-      // animasyon bitince DOM'dan sil
-      setTimeout(() => f.remove(), 8000);
+      // rastgeleler
+      wrapper.style.left = Math.random() * 100 + 'vw';
+      wrapper.style.setProperty('--fallDur', (3 + Math.random()*5) + 's');   // 3–8 sn
+      inner.style.setProperty('--swayX', ((Math.random()*2 - 1) * 30) + 'px'); // -30–30px
+      inner.style.setProperty('--spinDur', (2 + Math.random()*3) + 's');       // 2–5 sn
+      inner.style.fontSize = (16 + Math.random()*24) + 'px';
+
+      wrapper.appendChild(inner);
+      container.appendChild(wrapper);
+
+      setTimeout(() => wrapper.remove(), 9000);
     }
 
-    // her 300ms’de bir yeni çiçek
-    const timer = setInterval(spawnFlower, 300);
+    // düzenli üret
+    const timer = setInterval(spawnFlower, 350);
 
-    // (Opsiyonel) 10 sn sonra durdurmak istersen:
-    // setTimeout(() => clearInterval(timer), 10000);
+    // (opsiyonel) 12 sn sonra dursun
+    // setTimeout(() => clearInterval(timer), 12000);
   </script>
 
 </body>

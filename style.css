@@ -364,34 +364,47 @@ footer {
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
 }
 
-
+/* efekt katmanı en üstte ve tıklamayı engellemeden */
 #flowers-container{
   position: fixed;
-  inset: 0;             
-  pointer-events: none;  
+  inset: 0;
+  pointer-events: none;
   overflow: hidden;
-  z-index: 9999;         
+  z-index: 9999;
 }
 
-
+/* DIŞ: sadece düşüş */
 .flower{
   position: absolute;
-  top: -10vh;            
+  top: -10vh;                 /* ekranın biraz üstünden başlat */
+  animation: fall var(--fallDur, 6s) linear forwards;
   will-change: transform, opacity;
+}
+
+/* İÇ: sağa-sola salınım + hafif dönüş + titreşim */
+.petal{
+  display: inline-block;
   animation:
-    fall var(--dur, 6s) linear forwards,
-    sway calc(var(--dur, 6s) * 0.9) ease-in-out infinite alternate;
+    sway 1.8s ease-in-out infinite alternate,
+    spin var(--spinDur, 3s) linear infinite;
   opacity: .95;
 }
 
+/* dikey düşüş */
 @keyframes fall{
   from { transform: translateY(0); opacity: 1; }
   to   { transform: translateY(110vh); opacity: 0; }
 }
 
-
+/* yatay salınım (rüzgar) */
 @keyframes sway{
-  from { transform: translateX(calc(var(--sx, 20px) * -1)); }
-  to   { transform: translateX(var(--sx, 20px)); }
+  from { transform: translateX(calc(var(--swayX, 20px) * -1)); }
+  to   { transform: translateX(var(--swayX, 20px)); }
 }
 
+/* hafif dönme */
+@keyframes spin{
+  from { rotate: 0deg; }
+  to   { rotate: 360deg; }
+}
+    
