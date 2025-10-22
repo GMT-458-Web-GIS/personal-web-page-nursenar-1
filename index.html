@@ -45,20 +45,19 @@
   const flowers = ['🌸','🌼','🌺','🌷','🌻','💮'];
   const container = document.getElementById('flowers-container');
 
-  // her 400 ms'de bir yeni çiçek oluştur
+  
   setInterval(() => {
     const flower = document.createElement('span');
     flower.classList.add('flower');
     flower.innerText = flowers[Math.floor(Math.random() * flowers.length)];
     
-    // rastgele konum ve hız
+  
     flower.style.left = Math.random() * 100 + 'vw';
-    flower.style.animationDuration = 3 + Math.random() * 5 + 's'; // 3–8 sn
+    flower.style.animationDuration = 3 + Math.random() * 5 + 's'; 
     flower.style.fontSize = 16 + Math.random() * 24 + 'px';
     
     container.appendChild(flower);
 
-    // belirli süre sonra DOM'dan kaldır
     setTimeout(() => {
       flower.remove();
     }, 8000);

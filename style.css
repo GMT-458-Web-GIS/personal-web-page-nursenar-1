@@ -371,9 +371,9 @@ footer {
   left: 0;
   width: 100%;
   height: 100%;
-  pointer-events: none;   /* tıklamayı engellemez */
+  pointer-events: none;   
   overflow: hidden;
-  z-index: 9999;          /* her şeyin üstünde */
+  z-index: 9999;         
 }
 
 .flower {
@@ -384,7 +384,7 @@ footer {
   animation: fall linear forwards;
 }
 
-/* düşme animasyonu */
+
 @keyframes fall {
   0% {
     transform: translateY(0) rotate(0deg);
